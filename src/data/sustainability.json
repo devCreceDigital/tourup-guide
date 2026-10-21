@@ -20,7 +20,9 @@
    "verifiedAt": "2026-09-27",
    "source": "https://app.because.eco/company/goctaandeslodge",
    "notes": null,
-   "companyIds": []
+   "companyIds": [
+    "gocta-andes-lodge-cocachimba"
+   ]
   },
   {
    "id": "TV-0002",
@@ -40,7 +42,9 @@
    "verifiedAt": "2026-09-27",
    "source": "https://www.bcorporation.net/en-us/find-a-b-corp/company/gocta-natura-sac/",
    "notes": "Verificado en B Lab. B Lab no publica fecha de expiración; recertifica cada 3 años.",
-   "companyIds": []
+   "companyIds": [
+    "gocta-natura-reserve-gocta"
+   ]
   },
   {
    "id": "TV-0003",
@@ -60,7 +64,9 @@
    "verifiedAt": "2026-09-27",
    "source": "https://cs.preferredbynature.org/s/",
    "notes": null,
-   "companyIds": []
+   "companyIds": [
+    "colca-lodge-spa-hot-springs-colca"
+   ]
   },
   {
    "id": "TV-0004",
@@ -80,7 +86,9 @@
    "verifiedAt": "2026-09-27",
    "source": "https://cs.preferredbynature.org/s/",
    "notes": "Terminada antes de su fecha de expiración.",
-   "companyIds": []
+   "companyIds": [
+    "amazonas-explorer-cusco"
+   ]
   },
   {
    "id": "TV-0005",
@@ -100,7 +108,9 @@
    "verifiedAt": "2026-09-27",
    "source": "https://www.bcorporation.net/en-us/find-a-b-corp/company/amazonas-explorer/",
    "notes": "Verificado en B Lab. B Lab no publica fecha de expiración; recertifica cada 3 años.",
-   "companyIds": []
+   "companyIds": [
+    "amazonas-explorer-cusco"
+   ]
   },
   {
    "id": "TV-0006",
@@ -220,7 +230,9 @@
    "verifiedAt": "2026-09-27",
    "source": "https://www.bcorporation.net/en-us/find-a-b-corp/company/hotelera-del-valle-sac/",
    "notes": "Verificado en B Lab. B Lab no publica fecha de expiración; recertifica cada 3 años.",
-   "companyIds": []
+   "companyIds": [
+    "antigua-casona-san-blas-cusco"
+   ]
   },
   {
    "id": "TV-0012",
@@ -463,7 +475,9 @@
    "verifiedAt": "2026-09-27",
    "source": "https://cs.preferredbynature.org/s/",
    "notes": null,
-   "companyIds": []
+   "companyIds": [
+    "cock-of-the-rock-lodge-kosnipata"
+   ]
   },
   {
    "id": "TV-0024",
@@ -583,7 +597,9 @@
    "verifiedAt": "2026-09-27",
    "source": "https://www.bcorporation.net/en-us/find-a-b-corp/company/explorandes/",
    "notes": "Verificado en B Lab. B Lab no publica fecha de expiración; recertifica cada 3 años.",
-   "companyIds": []
+   "companyIds": [
+    "explorandes-lima"
+   ]
   },
   {
    "id": "TV-0030",
@@ -603,7 +619,9 @@
    "verifiedAt": "2026-09-27",
    "source": "https://cs.preferredbynature.org/s/",
    "notes": null,
-   "companyIds": []
+   "companyIds": [
+    "explorandes-lima"
+   ]
   },
   {
    "id": "TV-0031",
@@ -623,7 +641,9 @@
    "verifiedAt": "2026-09-27",
    "source": "https://app.because.eco/company/explorandino",
    "notes": null,
-   "companyIds": []
+   "companyIds": [
+    "explorandino-cusco"
+   ]
   },
   {
    "id": "TV-0032",
@@ -723,7 +743,9 @@
    "verifiedAt": "2026-09-27",
    "source": "https://app.because.eco/company/incaperutravel",
    "notes": null,
-   "companyIds": []
+   "companyIds": [
+    "inca-peru-travel-cusco"
+   ]
   },
   {
    "id": "TV-0037",
@@ -763,7 +785,9 @@
    "verifiedAt": "2026-09-27",
    "source": "https://app.because.eco/company/kawsaypaqpisacinn",
    "notes": null,
-   "companyIds": []
+   "companyIds": [
+    "kawsaypaq-pisac-inn-pisac"
+   ]
   },
   {
    "id": "TV-0039",
@@ -943,7 +967,9 @@
    "verifiedAt": "2026-09-27",
    "source": "https://app.because.eco/company/terresmagiquesdesincas",
    "notes": null,
-   "companyIds": []
+   "companyIds": [
+    "terres-magiques-des-incas-cusco"
+   ]
   },
   {
    "id": "TV-0048",
@@ -1023,7 +1049,9 @@
    "verifiedAt": "2026-09-27",
    "source": "https://cs.preferredbynature.org/s/",
    "notes": null,
-   "companyIds": []
+   "companyIds": [
+    "condor-travel-machupicchu-machupicchu"
+   ]
   },
   {
    "id": "TV-0052",
@@ -1043,7 +1071,9 @@
    "verifiedAt": "2026-09-27",
    "source": "https://cs.preferredbynature.org/s/",
    "notes": null,
-   "companyIds": []
+   "companyIds": [
+    "condor-travel-machupicchu-machupicchu"
+   ]
   },
   {
    "id": "TV-0053",
@@ -1063,7 +1093,9 @@
    "verifiedAt": "2026-09-27",
    "source": "https://www.bcorporation.net/en-us/find-a-b-corp/company/intrepid-group-ltd/",
    "notes": "Verificado en B Lab (empresa global). B Lab no publica fecha de expiración; recertifica cada 3 años.",
-   "companyIds": []
+   "companyIds": [
+    "intrepid-travel-lima"
+   ]
   },
   {
    "id": "TV-0054",
@@ -1103,7 +1135,9 @@
    "verifiedAt": "2026-09-27",
    "source": "https://www.bcorporation.net/en-us/find-a-b-corp/company/nassf-travel/",
    "notes": "Verificado en B Lab. B Lab no publica fecha de expiración; recertifica cada 3 años.",
-   "companyIds": []
+   "companyIds": [
+    "nassf-travel-lima"
+   ]
   },
   {
    "id": "TV-0056",
@@ -1223,7 +1257,9 @@
    "verifiedAt": "2026-09-27",
    "source": "https://www.bcorporation.net/en-us/find-a-b-corp/company/vamos-expeditions/",
    "notes": "Verificado en B Lab. B Lab no publica fecha de expiración; recertifica cada 3 años.",
-   "companyIds": []
+   "companyIds": [
+    "vamos-expeditions-lima"
+   ]
   },
   {
    "id": "TV-0062",
@@ -1643,7 +1679,9 @@
    "verifiedAt": "2026-09-27",
    "source": "https://app.because.eco/company/pumarinriamazonlodge",
    "notes": null,
-   "companyIds": []
+   "companyIds": [
+    "pumarinri-amazon-lodge-shapaja"
+   ]
   },
   {
    "id": "TV-0083",
@@ -1725,7 +1763,9 @@
    "verifiedAt": "2026-09-27",
    "source": "https://app.because.eco/company/peruviansacredadventuresrltda",
    "notes": "Turismo de aventura; la fuente no publica ciudad.",
-   "companyIds": []
+   "companyIds": [
+    "peruvian-sacred-adventure-peru"
+   ]
   },
   {
    "id": "TV-0087",
@@ -1745,7 +1785,9 @@
    "verifiedAt": "2026-09-27",
    "source": "https://app.because.eco/company/pukupukutravelsrl",
    "notes": null,
-   "companyIds": []
+   "companyIds": [
+    "puku-puku-travel-peru"
+   ]
   },
   {
    "id": "TV-0088",

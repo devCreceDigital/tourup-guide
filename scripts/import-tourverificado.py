@@ -21,6 +21,16 @@ import openpyxl
 
 OUT = 'src/data/sustainability.json'
 
+# Enlaces revisados a mano cuando el nombre de la ficha no coincide exacto con el del Excel.
+# Solo con una prueba concreta (mismo dominio web o mismo RUC); anotar cuál.
+MANUAL_LINKS = {
+    # Ficha "Condor Travel Machupicchu", web condortravel.com (misma marca y dominio).
+    'TV-0051': ['condor-travel-machupicchu-machupicchu'],
+    'TV-0052': ['condor-travel-machupicchu-machupicchu'],
+    # "Explorandes Peru" en Preferred by Nature es la misma empresa que "Explorandes" en B Lab.
+    'TV-0030': ['explorandes-lima'],
+}
+
 
 def ascii_lower(s):
     return unicodedata.normalize('NFKD', str(s or '')).encode('ascii', 'ignore').decode().lower()
@@ -124,7 +134,7 @@ def main(path):
             'verifiedAt': iso(rec.get('Última verificación')) or verified,
             'source': src[-1] if src else None,
             'notes': clean(rec.get('Notas')),
-            'companyIds': match(rec['Empresa']),
+            'companyIds': sorted(set(match(rec['Empresa']) + MANUAL_LINKS.get(clean(rec['ID']), []))),
         })
 
     drows = list(wb['Destinos_Reconocidos'].iter_rows(values_only=True))

@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content';
 import { companyDescription, companyDisplayName, companyPath } from '../../../../../utils/seo';
 import { categoryLabel } from '../../../../../utils/graph';
 import { getLocalizedString } from '../../../../../utils/i18n';
+import SustainabilityTag from '../../../../../components/site/SustainabilityTag.astro';
 
 export async function getStaticPaths() {
   const allCatDest = await getCollection('categorias_destino');
@@ -160,6 +161,7 @@ const pageDescription = t(
                     {company.data.nap?.city && (
                       <span class="company-tag">{company.data.nap.city}</span>
                     )}
+                    <SustainabilityTag companyId={company.id} lang={lang === 'en' ? 'en' : 'es'} />
                   </div>
                 </a>
               );

@@ -14,6 +14,7 @@ import { SITE_URL, companyPath } from '../../../utils/seo';
 import { DESTINATION_ORDER, destinationsPath, directoryPath, itineraryPath } from '../../../data/site';
 import { categoryLabel, itinerariesFor, operatorsIn } from '../../../utils/graph';
 import photos from '../../../data/photos.json';
+import SustainabilityTag from '../../../components/site/SustainabilityTag.astro';
 import sustainability from '../../../data/sustainability.json';
 import { currentCertificationsIn, recognitionsFor, certificationLabel, type Certification, type RecognizedDestination } from '../../../utils/sustainability';
 import { sustainabilityPath } from '../../../data/sustainable-itineraries';
@@ -215,6 +216,7 @@ const jsonLd = {
             <li>
               <a href={companyPath(lang, o.id)}>{o.name}</a>
               <span>{[o.role, o.city].filter(Boolean).join(' · ')}</span>
+              <SustainabilityTag companyId={o.id} lang={lang} />
             </li>
           ))}
         </ul>

@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import {
+  certCode,
   certStatus,
   certificationsForCompany,
   currentCertifications,
@@ -62,6 +63,30 @@ describe('certificaciones vigentes', () => {
     expect(certs.length).toBeGreaterThan(0);
     expect(certs.every((c) => c.verifiedAt)).toBe(true);
     expect(currentCertifications(certs, today).every((c) => c.source?.startsWith('http'))).toBe(true);
+  });
+});
+
+describe('fichas con certificación', () => {
+  it('Condor Travel muestra su certificación vigente de Preferred by Nature', () => {
+    const list = certificationsForCompany(data.certifications as Certification[], 'condor-travel-machupicchu-machupicchu', today);
+    expect(list.map((c) => c.code)).toEqual(['PBN-TO-064762']);
+  });
+
+  it('toda certificación vigente tiene ficha en el directorio', () => {
+    const sinFicha = currentCertifications(data.certifications as Certification[], today).filter((c) => c.companyIds.length === 0);
+    expect(sinFicha.map((c) => c.company)).toEqual([]);
+  });
+
+  it('una ficha creada por su certificación también lista las terminadas', () => {
+    const all = data.certifications as Certification[];
+    expect(certificationsForCompany(all, 'explorandes-lima', today).map((c) => c.id)).toEqual(['TV-0029']);
+    expect(certificationsForCompany(all, 'explorandes-lima', today, true).map((c) => c.id)).toEqual(['TV-0029', 'TV-0030']);
+  });
+
+  it('el código solo se muestra si está completo', () => {
+    expect(certCode({ code: 'PBN-TO-064762' })).toBe('PBN-TO-064762');
+    expect(certCode({ code: 'RA-TO- (código incompleto en la fuente)' })).toBeNull();
+    expect(certCode({ code: null })).toBeNull();
   });
 });
 

@@ -15,7 +15,11 @@ const companies = defineCollection({
 			'online_travel_agency',
 			'dmc',
 			'mixed_agency',
+			'lodging',
 		]).optional().default('tour_operator'),
+		// Origen de la ficha cuando no viene del registro MINCETUR: 'tourverificado' = creada a
+		// partir de una certificación de sostenibilidad (ver scripts/create-certified-profiles.py).
+		profile_source: z.literal('tourverificado').optional(),
 		sales_channel: z.enum(['online', 'offline', 'omnichannel']).optional(),
 		summary: z.string(),                 // 1-2 sentence answer-first blurb for AEO
 

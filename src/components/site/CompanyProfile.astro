@@ -78,7 +78,10 @@ const citedIn = promptsEn
   )
   .map((p: any) => ({ slug: p.id.replace(/\.md$/i, ''), title: getLocalizedString(p.data.title, 'en') }));
 
-const certs = certificationsForCompany(sustainability.certifications as Certification[], id);
+// Las fichas creadas a partir de su certificación muestran también las vencidas: sin ellas
+// la ficha quedaría vacía cuando venza.
+const fromCertifier = d.profile_source === 'tourverificado';
+const certs = certificationsForCompany(sustainability.certifications as Certification[], id, new Date(), fromCertifier);
 const rating = typeof d.rating === 'number' && d.reviews_count ? { value: d.rating, count: d.reviews_count } : null;
 const testimonials = (d.testimonials ?? []).filter((x: any) => x?.text);
 const responseHours = d.trust_metrics?.avg_response_time_hours;
@@ -90,7 +93,7 @@ const about = [
     : `${name} is a ${role.toLowerCase()} based in ${district || 'Peru'}${region && region !== district ? ` (${region} region)` : ''}${ruc ? `, registered with Peru's tax authority under RUC ${ruc}` : ''}.`,
   operatesIn.length
     ? es
-      ? `Declara operar en ${operatesIn.map((x: any) => x.name).join(', ')}.`
+      ? `${fromCertifier ? 'Opera en' : 'Declara operar en'} ${operatesIn.map((x: any) => x.name).join(', ')}.`
       : `It lists ${operatesIn.map((x: any) => x.name).join(', ')} as ${operatesIn.length === 1 ? 'its operating area' : 'operating areas'}.`
     : '',
 ].filter(Boolean).join(' ');
@@ -106,7 +109,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
     {
-      '@type': ['TravelAgency', 'LocalBusiness'],
+      '@type': d.distribution_role === 'lodging' ? ['LodgingBusiness', 'LocalBusiness'] : ['TravelAgency', 'LocalBusiness'],
       '@id': `${pageUrl}#company`,
       name,
       description,
@@ -165,7 +168,15 @@ const jsonLd = {
   {certs.length > 0 && (
     <>
       <h2>{t('Sostenibilidad', 'Sustainability')}</h2>
-      <CertifiedList certs={certs} lang={lang} showPlace={false} />
+      <CertifiedList certs={certs} lang={lang} showPlace={fromCertifier} />
+      {fromCertifier && (
+        <p class="cp-source">
+          {t(
+            `Ficha creada a partir del registro público de la certificadora, revisado el ${fmtDate(sustainability.verifiedAt)}. El estado se recalcula con la fecha de vigencia.`,
+            `Profile built from the certifier's public register, checked on ${fmtDate(sustainability.verifiedAt)}. Status is recalculated against the validity date.`,
+          )}
+        </p>
+      )}
     </>
   )}
 

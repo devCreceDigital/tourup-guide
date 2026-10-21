@@ -6,6 +6,7 @@
 import type { Locale } from '../../utils/i18n';
 import { companyPath } from '../../utils/seo';
 import {
+  certCode,
   certStatus,
   certificationLabel,
   statusLabel,
@@ -41,6 +42,7 @@ const rows = certs.map((c) => ({ ...c, status: certStatus(c) }));
       <div class="cert-status">
         <span class="cert-badge">{statusLabel(c.status, lang)}</span>
         {c.validUntil && <span>{es ? 'Hasta' : 'Until'} {fmt(c.validUntil)}</span>}
+        {certCode(c) && <span>{es ? 'Código' : 'Code'} {certCode(c)}</span>}
         {c.source && <a href={c.source} rel="noopener nofollow">{es ? 'Ver en el registro' : 'Check the register'}</a>}
       </div>
     </li>

@@ -102,6 +102,7 @@ const ROLES: Record<string, Record<Locale, string>> = {
   online_travel_agency: { es: 'Agencia de viajes online', en: 'Online travel agency' },
   dmc: { es: 'DMC (gestor de destino)', en: 'Destination management company' },
   mixed_agency: { es: 'Agencia mixta', en: 'Mixed travel agency' },
+  lodging: { es: 'Alojamiento', en: 'Lodging' },
 };
 
 /** Hay fichas cuyo nombre es "-" o está vacío (dato de origen): no tienen ninguna letra ni número. */

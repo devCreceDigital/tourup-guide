@@ -108,6 +108,7 @@ const ROLE_PLURAL: Record<string, Record<Locale, string>> = {
   online_travel_agency: { es: 'agencias online', en: 'online travel agencies' },
   dmc: { es: 'DMC', en: 'DMCs' },
   mixed_agency: { es: 'agencias mixtas', en: 'mixed travel agencies' },
+  lodging: { es: 'alojamientos', en: 'lodgings' },
 };
 
 /** Cifras reales del directorio (solo fichas con nombre, que son las indexables). */

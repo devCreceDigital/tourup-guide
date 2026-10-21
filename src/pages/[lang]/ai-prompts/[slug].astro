@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
 import JsonLdPromptLanding from '../../../components/JsonLdPromptLanding.astro';
+import SustainabilityTag from '../../../components/site/SustainabilityTag.astro';
 import { getLocalizedString, type Locale } from '../../../utils/i18n';
 import { cityLabel, companyRole } from '../../../utils/seo';
 import {
@@ -200,6 +201,7 @@ const validDate = checkedDate && !Number.isNaN(checkedDate.getTime()) ? checkedD
                 )}
               </h3>
               <p>{mentionSummary(m, lang)}</p>
+              {!m.external && <SustainabilityTag companyId={m.entity!.id} lang={lang} />}
             </li>
           ))}
         </ol>

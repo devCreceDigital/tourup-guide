@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
 import { getLocalizedString } from '../../../utils/i18n';
 import { companyDisplayName, hasCompanyName } from '../../../utils/seo';
+import SustainabilityTag from '../../../components/site/SustainabilityTag.astro';
 
 export async function getStaticPaths() {
   return [{ params: { lang: 'es' }, props: { lang: 'es' } }];
@@ -76,6 +77,7 @@ const currentPath = `/${lang}/empresas/`;
                 {c.data.distribution_role && (
                   <span class="tag role">{c.data.distribution_role.replace(/_/g, ' ')}</span>
                 )}
+                <SustainabilityTag companyId={c.id} lang={lang as 'es' | 'en'} />
                 {c.data.rating && (
                   <span class="tag rating">★ {c.data.rating}</span>
                 )}

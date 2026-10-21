@@ -62,9 +62,16 @@ export function currentCertifications(all: Certification[], today = new Date()) 
     .sort((a, b) => (a.region ?? '').localeCompare(b.region ?? '') || a.company.localeCompare(b.company));
 }
 
-/** Certificaciones vigentes de una ficha del directorio (vacío si no tiene). */
-export function certificationsForCompany(all: Certification[], companyId: string, today = new Date()) {
-  return currentCertifications(all, today).filter((c) => c.companyIds.includes(companyId.replace(/\.md$/i, '')));
+/**
+ * Certificaciones vigentes de una ficha del directorio (vacío si no tiene). Con `includeAll`
+ * devuelve también las vencidas o terminadas, para las fichas que existen por su certificación.
+ */
+export function certificationsForCompany(all: Certification[], companyId: string, today = new Date(), includeAll = false) {
+  const id = companyId.replace(/\.md$/i, '');
+  const list = includeAll
+    ? all.map((c) => ({ ...c, status: certStatus(c, today) })).sort((a, b) => Number(isCurrent(b.status)) - Number(isCurrent(a.status)))
+    : currentCertifications(all, today);
+  return list.filter((c) => c.companyIds.includes(id));
 }
 
 const TYPES_EN: Record<string, string> = {
@@ -113,6 +120,15 @@ export function certificationLabel(c: Pick<Certification, 'certification'>, lang
 }
 
 /**
+ * Código del certificado, para buscarlo en registros sin página por empresa (Preferred by
+ * Nature). Null si la fuente lo publica incompleto.
+ */
+export function certCode(c: Pick<Certification, 'code'>): string | null {
+  const code = c.code?.trim();
+  return code && /^[A-Z]{2,3}-[A-Z]{2}-\d+$/.test(code) ? code : null;
+}
+
+/**
  * Destino reconocido → página de destino del sitio, solo cuando el lugar reconocido está
  * dentro del destino o se visita desde él.
  */
@@ -154,4 +170,9 @@ export function recognitionsFor(all: RecognizedDestination[], destinationSlug: s
 /** Certificaciones vigentes de empresas cuya región corresponde a un destino. */
 export function currentCertificationsIn(all: Certification[], destinationSlug: string, today = new Date()) {
   return currentCertifications(all, today).filter((c) => destinationForRegion(c.region) === destinationSlug);
+}
+
+/** Ids de ficha con al menos una certificación vigente hoy (para la etiqueta en listados). */
+export function certifiedCompanyIds(all: Certification[], today = new Date()): Set<string> {
+  return new Set(currentCertifications(all, today).flatMap((c) => c.companyIds));
 }

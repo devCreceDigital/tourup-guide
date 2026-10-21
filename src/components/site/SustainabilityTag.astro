@@ -1,0 +1,43 @@
+---
+/**
+ * Etiqueta "Sustainability" en tarjetas y listados de empresas: solo si la ficha tiene una
+ * certificación de sostenibilidad vigente hoy (base TourVerificado).
+ */
+import sustainability from '../../data/sustainability.json';
+import type { Locale } from '../../utils/i18n';
+import { certifiedCompanyIds, type Certification } from '../../utils/sustainability';
+
+interface Props {
+  companyId: string;
+  lang: Locale;
+}
+
+const { companyId, lang } = Astro.props;
+const certified = certifiedCompanyIds(sustainability.certifications as Certification[]).has(companyId.replace(/\.md$/i, ''));
+const es = lang === 'es';
+---
+
+{certified && (
+  <span
+    class="sustainability-tag"
+    title={es ? 'Certificación de sostenibilidad vigente' : 'Valid sustainability certification'}
+  >
+    {es ? 'Sostenibilidad' : 'Sustainability'}
+  </span>
+)}
+
+<style>
+  .sustainability-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    line-height: 1.4;
+    padding: 0.1rem 0.5rem;
+    border-radius: 999px;
+    background: #d9f2df;
+    color: #1d5b2e;
+    white-space: nowrap;
+  }
+</style>
